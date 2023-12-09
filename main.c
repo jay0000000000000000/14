@@ -3,20 +3,23 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
+struct Book {
+	int number;
+	char title[10];
+};
+
 int main(int argc, char *argv[]) 
 {
-	char *pc = NULL;
-	int i = 0;
+	struct Book *p;
 	
-	pc = (char*)malloc(100*sizeof(char));
+	p = (struct Book*)malloc( 2*sizeof(struct Book*));
+	strcpy(p->title, "C programming");
+	(p+1)->number = 2;
+	strcpy((p+1)->title, "Electronics");
 	
-	for (i=0;i<26;i++)
-	  pc[i] = 'a' + i;
-	pc[i] = 0;
-	
-	printf("%s\n", pc);
-	
-	free(pc);
-	
+	free(p);
+	 
+	 
+	system("PAUSE");
 	return 0;
 }
